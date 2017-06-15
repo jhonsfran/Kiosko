@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2017 02:42:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.AntecedentesFamiliares" table="antecedentes_familiares" schema="public" optimistic-lock="version">
+        <id name="afId" type="int">
+            <column name="af_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="paciente" class="entity.Paciente" fetch="select">
+            <column name="af_id_paciente" length="30" not-null="true" />
+        </many-to-one>
+        <property name="afAbuelosInfarto" type="java.lang.Boolean">
+            <column name="af_abuelos_infarto" />
+        </property>
+        <property name="afPadresInfarto" type="java.lang.Boolean">
+            <column name="af_padres_infarto" />
+        </property>
+        <property name="afTiosInfarto" type="java.lang.Boolean">
+            <column name="af_tios_infarto" />
+        </property>
+        <property name="afHermanosInfarto" type="java.lang.Boolean">
+            <column name="af_hermanos_infarto" />
+        </property>
+        <property name="afAbuelosDiabetes" type="java.lang.Boolean">
+            <column name="af_abuelos_diabetes" />
+        </property>
+        <property name="afPadresDiabetes" type="java.lang.Boolean">
+            <column name="af_padres_diabetes" />
+        </property>
+        <property name="afTiosDiabetes" type="java.lang.Boolean">
+            <column name="af_tios_diabetes" />
+        </property>
+        <property name="afHermanosDiabetes" type="java.lang.Boolean">
+            <column name="af_hermanos_diabetes" />
+        </property>
+        <property name="afAbuelosHipertension" type="java.lang.Boolean">
+            <column name="af_abuelos_hipertension" />
+        </property>
+        <property name="afPadresHipertension" type="java.lang.Boolean">
+            <column name="af_padres_hipertension" />
+        </property>
+        <property name="afTiosHipertension" type="java.lang.Boolean">
+            <column name="af_tios_hipertension" />
+        </property>
+        <property name="afHermanosHipertension" type="java.lang.Boolean">
+            <column name="af_hermanos_hipertension" />
+        </property>
+        <property name="afAbuelosAcv" type="java.lang.Boolean">
+            <column name="af_abuelos_acv" />
+        </property>
+        <property name="afPadresAcv" type="java.lang.Boolean">
+            <column name="af_padres_acv" />
+        </property>
+        <property name="afTiosAcv" type="java.lang.Boolean">
+            <column name="af_tios_acv" />
+        </property>
+        <property name="afHermanosAcv" type="java.lang.Boolean">
+            <column name="af_hermanos_acv" />
+        </property>
+    </class>
+</hibernate-mapping>

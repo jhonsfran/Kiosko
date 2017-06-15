@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2017 02:42:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.UnidadTiempo" table="unidad_tiempo" schema="public" optimistic-lock="version">
+        <id name="utId" type="int">
+            <column name="ut_id" />
+            <generator class="identity" />
+        </id>
+        <property name="utNombre" type="string">
+            <column name="ut_nombre" length="20" not-null="true" />
+        </property>
+        <set name="antecedentesPersonalesesForApUnidadFrecuenciaCigarillo" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_unidad_frecuencia_cigarillo" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+        <set name="antecedentesPersonalesesForApUnidadFrecuenciaLicor" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_unidad_frecuencia_licor" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+        <set name="antecedentesPersonalesesForApUnidadHaceCuantoLicor" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_unidad_hace_cuanto_licor" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+        <set name="antecedentesPersonalesesForApUnidadFrecuenciaOtrasSustancias" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_unidad_frecuencia_otras_sustancias" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+        <set name="antecedentesPersonalesesForApUnidadHaceCuantoOtrasSustancias" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_unidad_hace_cuanto_otras_sustancias" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+        <set name="antecedentesPersonalesesForApUnidadFrecuenciaActividadFisica" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_unidad_frecuencia_actividad_fisica" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+        <set name="antecedentesPersonalesesForApUnidadHaceCuantoCigarillo" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_unidad_hace_cuanto_cigarillo" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+    </class>
+</hibernate-mapping>

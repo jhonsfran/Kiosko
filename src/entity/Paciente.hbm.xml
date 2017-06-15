@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2017 02:42:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Paciente" table="paciente" schema="public" optimistic-lock="version">
+        <id name="pacId" type="string">
+            <column name="pac_id" length="30" />
+            <generator class="foreign">
+                <param name="property">login</param>
+            </generator>
+        </id>
+        <one-to-one name="login" class="entity.Login" constrained="true"></one-to-one>
+        <property name="pacTipoId" type="string">
+            <column name="pac_tipo_id" length="10" not-null="true" />
+        </property>
+        <property name="pacApellido1" type="string">
+            <column name="pac_apellido1" length="50" not-null="true" />
+        </property>
+        <property name="pacApellido2" type="string">
+            <column name="pac_apellido2" length="50" not-null="true" />
+        </property>
+        <property name="pacNombres" type="string">
+            <column name="pac_nombres" length="50" not-null="true" />
+        </property>
+        <property name="pacEdad" type="string">
+            <column name="pac_edad" length="3" not-null="true" />
+        </property>
+        <property name="pacSexo" type="char">
+            <column name="pac_sexo" length="1" not-null="true" />
+        </property>
+        <property name="pacUnidadEdad" type="int">
+            <column name="pac_unidad_edad" not-null="true" />
+        </property>
+        <property name="pacFechaNacimiento" type="date">
+            <column name="pac_fecha_nacimiento" length="13" not-null="true" />
+        </property>
+        <property name="pacOcupacion" type="string">
+            <column name="pac_ocupacion" length="50" />
+        </property>
+        <property name="pacCelular" type="string">
+            <column name="pac_celular" length="50" />
+        </property>
+        <property name="pacTelefono" type="string">
+            <column name="pac_telefono" length="50" />
+        </property>
+        <property name="pacEmail" type="string">
+            <column name="pac_email" length="50" />
+        </property>
+        <property name="pacDireccion" type="string">
+            <column name="pac_direccion" length="50" />
+        </property>
+        <property name="pacFechaRegistro" type="date">
+            <column name="pac_fecha_registro" length="13" not-null="true" />
+        </property>
+        <property name="pacEstado" type="boolean">
+            <column name="pac_estado" not-null="true" />
+        </property>
+        <set name="antecedentesFamiliareses" table="antecedentes_familiares" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="af_id_paciente" length="30" not-null="true" />
+            </key>
+            <one-to-many class="entity.AntecedentesFamiliares" />
+        </set>
+        <set name="antecedentesPersonaleses" table="antecedentes_personales" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ap_id_paciente" length="30" not-null="true" />
+            </key>
+            <one-to-many class="entity.AntecedentesPersonales" />
+        </set>
+    </class>
+</hibernate-mapping>

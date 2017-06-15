@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2017 02:42:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Log" table="log" schema="public" optimistic-lock="version">
+        <id name="idLog" type="int">
+            <column name="id_log" />
+            <generator class="assigned" />
+        </id>
+        <property name="tableNombre" type="string">
+            <column name="table_nombre" length="10" not-null="true" />
+        </property>
+        <property name="operacion" type="string">
+            <column name="operacion" length="10" />
+        </property>
+        <property name="oldValue" type="string">
+            <column name="old_value" length="100" />
+        </property>
+        <property name="newValue" type="string">
+            <column name="new_value" length="100" />
+        </property>
+        <property name="userName" type="string">
+            <column name="user_name" length="30" not-null="true" />
+        </property>
+        <property name="dateOperation" type="date">
+            <column name="date_operation" length="13" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

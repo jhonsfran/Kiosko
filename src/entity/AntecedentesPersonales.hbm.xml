@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2017 02:42:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.AntecedentesPersonales" table="antecedentes_personales" schema="public" optimistic-lock="version">
+        <id name="apId" type="int">
+            <column name="ap_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="paciente" class="entity.Paciente" fetch="select">
+            <column name="ap_id_paciente" length="30" not-null="true" />
+        </many-to-one>
+        <many-to-one name="unidadTiempoByApUnidadFrecuenciaCigarillo" class="entity.UnidadTiempo" fetch="select">
+            <column name="ap_unidad_frecuencia_cigarillo" />
+        </many-to-one>
+        <many-to-one name="unidadTiempoByApUnidadFrecuenciaLicor" class="entity.UnidadTiempo" fetch="select">
+            <column name="ap_unidad_frecuencia_licor" />
+        </many-to-one>
+        <many-to-one name="unidadTiempoByApUnidadHaceCuantoLicor" class="entity.UnidadTiempo" fetch="select">
+            <column name="ap_unidad_hace_cuanto_licor" />
+        </many-to-one>
+        <many-to-one name="unidadTiempoByApUnidadFrecuenciaOtrasSustancias" class="entity.UnidadTiempo" fetch="select">
+            <column name="ap_unidad_frecuencia_otras_sustancias" />
+        </many-to-one>
+        <many-to-one name="unidadTiempoByApUnidadHaceCuantoOtrasSustancias" class="entity.UnidadTiempo" fetch="select">
+            <column name="ap_unidad_hace_cuanto_otras_sustancias" />
+        </many-to-one>
+        <many-to-one name="unidadTiempoByApUnidadFrecuenciaActividadFisica" class="entity.UnidadTiempo" fetch="select">
+            <column name="ap_unidad_frecuencia_actividad_fisica" />
+        </many-to-one>
+        <many-to-one name="unidadTiempoByApUnidadHaceCuantoCigarillo" class="entity.UnidadTiempo" fetch="select">
+            <column name="ap_unidad_hace_cuanto_cigarillo" />
+        </many-to-one>
+        <property name="apInfarto" type="java.lang.Boolean">
+            <column name="ap_infarto" />
+        </property>
+        <property name="apHipertensi&#243;n" type="java.lang.Boolean">
+            <column name="ap_hipertensi&#243;n" />
+        </property>
+        <property name="apDiabetes" type="java.lang.Boolean">
+            <column name="ap_diabetes" />
+        </property>
+        <property name="apAcv" type="java.lang.Boolean">
+            <column name="ap_acv" />
+        </property>
+        <property name="apFumaCigarrillo" type="java.lang.Boolean">
+            <column name="ap_fuma_cigarrillo" />
+        </property>
+        <property name="apFrecuenciaCigarrillo" type="java.lang.Integer">
+            <column name="ap_frecuencia_cigarrillo" />
+        </property>
+        <property name="apHaceCuantoCigarrillo" type="java.lang.Integer">
+            <column name="ap_hace_cuanto_cigarrillo" />
+        </property>
+        <property name="apConviveConFumadores" type="java.lang.Boolean">
+            <column name="ap_convive_con_fumadores" />
+        </property>
+        <property name="apConsumeLicor" type="java.lang.Boolean">
+            <column name="ap_consume_licor" />
+        </property>
+        <property name="apFrecuenciaLicor" type="java.lang.Integer">
+            <column name="ap_frecuencia_licor" />
+        </property>
+        <property name="apHaceCuantoLicor" type="java.lang.Integer">
+            <column name="ap_hace_cuanto_licor" />
+        </property>
+        <property name="apConsumeOtrasSustancias" type="java.lang.Boolean">
+            <column name="ap_consume_otras_sustancias" />
+        </property>
+        <property name="apFrecuenciaOtrasSustancias" type="java.lang.Integer">
+            <column name="ap_frecuencia_otras_sustancias" />
+        </property>
+        <property name="apHaceCuantoOtrasSustancias" type="java.lang.Integer">
+            <column name="ap_hace_cuanto_otras_sustancias" />
+        </property>
+        <property name="apActividadFisica" type="java.lang.Boolean">
+            <column name="ap_actividad_fisica" />
+        </property>
+        <property name="apFrecuenciaActividadFisica" type="java.lang.Integer">
+            <column name="ap_frecuencia_actividad_fisica" />
+        </property>
+        <property name="apMedicamentos" type="string">
+            <column name="ap_medicamentos" length="500" />
+        </property>
+    </class>
+</hibernate-mapping>

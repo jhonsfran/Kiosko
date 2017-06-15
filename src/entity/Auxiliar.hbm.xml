@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 15/06/2017 02:42:03 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Auxiliar" table="auxiliar" schema="public" optimistic-lock="version">
+        <id name="auxId" type="string">
+            <column name="aux_id" length="30" />
+            <generator class="foreign">
+                <param name="property">login</param>
+            </generator>
+        </id>
+        <one-to-one name="login" class="entity.Login" constrained="true"></one-to-one>
+        <property name="auxTipoId" type="string">
+            <column name="aux_tipo_id" length="10" not-null="true" />
+        </property>
+        <property name="auxApellido1" type="string">
+            <column name="aux_apellido1" length="50" not-null="true" />
+        </property>
+        <property name="auxApellido2" type="string">
+            <column name="aux_apellido2" length="50" not-null="true" />
+        </property>
+        <property name="auxNombres" type="string">
+            <column name="aux_nombres" length="50" not-null="true" />
+        </property>
+        <property name="auxFechaRegistro" type="date">
+            <column name="aux_fecha_registro" length="13" not-null="true" />
+        </property>
+        <property name="auxEstado" type="boolean">
+            <column name="aux_estado" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
